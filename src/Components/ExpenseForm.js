@@ -24,7 +24,13 @@ const ExpenseForm = ({ getData }) => {
   };
   const submitHandler = (event) => {
     event.preventDefault();
-    getData(userInput);
+    const exp = {
+      title: userInput.entredTitle,
+      price: userInput.entredPrice,
+      date: new Date(userInput.entredDate),
+      id: Math.random().toString(),
+    };
+    getData(exp);
   };
   return (
     <form onSubmit={submitHandler}>
