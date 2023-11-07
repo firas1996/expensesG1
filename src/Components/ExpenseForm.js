@@ -31,17 +31,31 @@ const ExpenseForm = ({ getData }) => {
       id: Math.random().toString(),
     };
     getData(exp);
+    setUserInput({
+      entredDate: "",
+      entredPrice: "",
+      entredTitle: "",
+    });
   };
   return (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHandler} />
+          <input
+            type="text"
+            value={userInput.entredTitle}
+            onChange={titleChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Price</label>
-          <input type="number" step="0.001" onChange={priceChangeHandler} />
+          <input
+            type="number"
+            step="0.001"
+            value={userInput.entredPrice}
+            onChange={priceChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Date</label>
@@ -49,6 +63,7 @@ const ExpenseForm = ({ getData }) => {
             type="date"
             min="2020-01-01"
             max="2024-12-31"
+            value={userInput.entredDate}
             onChange={dateChangeHandler}
           />
         </div>
