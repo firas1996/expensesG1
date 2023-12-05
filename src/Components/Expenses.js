@@ -7,7 +7,7 @@ import ChartData from "./ExpensesChart/ChartData";
 const Expenses = ({ expenses }) => {
   return (
     <Card className="expenses">
-      <ChartData />
+      <ChartData expenses={expenses} />
       {expenses.map((expense) => {
         return (
           <ExpenseItem
