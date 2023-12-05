@@ -13,6 +13,23 @@ const Expenses = ({ expenses }) => {
   const filtredExpenses = expenses.filter((item) => {
     return item.date.getFullYear().toString() === setselectValue;
   });
+  let emptiCheck = (
+    <h2 style={{ color: "white", textAlign: "center" }}>
+      No Expenses Found !!!
+    </h2>
+  );
+  if (filtredExpenses.length > 0) {
+    emptiCheck = filtredExpenses.map((expense) => {
+      return (
+        <ExpenseItem
+          key={expense.id}
+          title={expense.title}
+          date={expense.date}
+          price={expense.price}
+        />
+      );
+    });
+  }
   return (
     <Card className="expenses">
       <ExpensesFilter
@@ -20,16 +37,7 @@ const Expenses = ({ expenses }) => {
         selectHandler={selectHandler}
       />
       <ChartData expenses={filtredExpenses} />
-      {filtredExpenses.map((expense) => {
-        return (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            date={expense.date}
-            price={expense.price}
-          />
-        );
-      })}
+      {emptiCheck}
     </Card>
   );
 };
