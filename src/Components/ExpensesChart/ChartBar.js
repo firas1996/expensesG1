@@ -1,12 +1,13 @@
 import React from "react";
+import "./ChartBar.css";
 
 const ChartBar = ({ label, fill }) => {
   return (
-    <div>
-      <div>
-        <div style={{ height: fill }}></div>
+    <div className="chart-bar">
+      <div className="chart-bar__inner">
+        <div className="chart-bar__fill" style={{ height: fill }}></div>
       </div>
-      <div>{label}</div>
+      <div className="chart-bar__label">{label}</div>
     </div>
   );
 };

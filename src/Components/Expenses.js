@@ -2,10 +2,12 @@ import React from "react";
 import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
 import Card from "./UI/Card";
+import ChartData from "./ExpensesChart/ChartData";
 
 const Expenses = ({ expenses }) => {
   return (
     <Card className="expenses">
+      <ChartData />
       {expenses.map((expense) => {
         return (
           <ExpenseItem
